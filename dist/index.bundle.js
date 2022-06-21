@@ -6,12 +6,12 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 /* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(28);
-/* harmony import */ var _modules_getShowsList__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(30);
+/* harmony import */ var _modules_getShowsList_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(30);
 
 
 
 
-(0,_modules_getShowsList__WEBPACK_IMPORTED_MODULE_2__["default"])();
+(0,_modules_getShowsList_js__WEBPACK_IMPORTED_MODULE_2__["default"])();
 
 
 /***/ }),
@@ -730,15 +730,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-const show = document.querySelector(".main-container");
+const show = document.querySelector('.main-container');
 let template = '';
 
 const fetchData = async () => {
-  const data = await fetch("https://api.tvmaze.com/search/shows?q=girls");
-  let result = await data.json();
-  result.map(res =>{
-  template += `
-  <li id="${ res.show.id}" class="col-sm mt-3">
+  const data = await fetch('https://api.tvmaze.com/search/shows?q=girls');
+  const result = await data.json();
+  result.map((res) => {
+    template += `
+  <li id="${res.show.id}" class="col-sm mt-3">
    <div class="card" style="width: 18rem;">
     <img src="${res.show.image.medium}" class="card-img-top" alt="...">
     <div class="card-body">
@@ -754,7 +754,7 @@ const fetchData = async () => {
 </div>
 </li>
         `;
-  show.innerHTML = template;
+    show.innerHTML = template;
   });
 };
 

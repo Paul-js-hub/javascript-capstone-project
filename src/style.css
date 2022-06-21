@@ -8,3 +8,19 @@ body {
   background-color: #fff;
   font-family: Quintessential, sans-serif;
 }
+
+.header {
+  display: flex;
+  margin-left: 20px;
+  margin-top: 30px;
+  justify-content: center;
+}
+
+.header a {
+  text-decoration: none;
+}
+
+.header h1 {
+  border: 2px solid red;
+  margin-left: 50px;
+}

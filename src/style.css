@@ -25,6 +25,31 @@ body {
 }
 
 .header h1 {
-  border: 2px solid red;
   margin-left: 50px;
+}
+
+.like {
+  cursor: pointer;
+  text-align: end;
+  margin-right: 27px;
+}
+
+.space {
+  display: flex;
+  justify-content: space-around;
+}
+
+.main-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px;
+}
+
+.btn-1 {
+  box-shadow: 4px 7px 4px 0 #000;
+  border: 1px solid #000;
+}
+
+.btn-container {
+  text-align: center;
 }

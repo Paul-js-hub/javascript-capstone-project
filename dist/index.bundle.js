@@ -6,8 +6,12 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 /* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(28);
+/* harmony import */ var _modules_homeApi___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(30);
 
 
+
+
+(0,_modules_homeApi___WEBPACK_IMPORTED_MODULE_2__["default"])();
 
 
 /***/ }),
@@ -713,9 +717,50 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "* {\r\n  margin: 0;\r\n  padding: 0;\r\n  box-sizing: border-box;\r\n}\r\n\r\nbody {\r\n  background-color: #fff;\r\n  font-family: 'Roboto', sans-serif;\r\n}\r\n\r\n.copyright {\r\n  background-color: rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n.header {\r\n  display: flex;\r\n  margin-left: 20px;\r\n  margin-top: 30px;\r\n  justify-content: center;\r\n}\r\n\r\n.header a {\r\n  text-decoration: none;\r\n}\r\n\r\n.header h1 {\r\n  border: 2px solid red;\r\n  margin-left: 50px;\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\n\nbody {\n  background-color: #fff;\n  font-family: 'Roboto', sans-serif;\n}\n\n.copyright {\n  background-color: rgba(0, 0, 0, 0.2);\n}\n\n.header {\n  display: flex;\n  margin-left: 20px;\n  margin-top: 30px;\n  justify-content: center;\n}\n\n.header a {\n  text-decoration: none;\n}\n\n.header h1 {\n  margin-left: 50px;\n}\n\n.like {\n  cursor: pointer;\n  text-align: end;\n  margin-right: 27px;\n}\n\n.space {\n  display: flex;\n  justify-content: space-around;\n}\n\n.main-container {\n  display: flex;\n  justify-content: space-around;\n  margin: 20px;\n}\n\n.btn-1 {\n  box-shadow: 4px 7px 4px 0 #000;\n  border: 1px solid #000;\n}\n\n.btn-container {\n  text-align: center;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+/* 30 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+const show = document.getElementById('name');
+
+const fetchData = async () => {
+  const data = await fetch('https://api.tvmaze.com/search/shows?q=girls')
+  let result = await data.json();
+  let template = '';
+  result.map((res) => {
+    template += `
+<div class="row main-container">
+  <div class="card col-sm-4" style="width: 18rem;">
+   <img src="${res.show.medium}" class="card-img-top" alt="...">
+   <div class="card-body">
+     <div class="space">
+      <h5 class="card-title">${res.show.name}</h5>
+      <i class="fa fa-heart" aria-hidden="true"></i>
+    </div>
+     <p  class="like">likes</p>
+     <div class="btn-container">
+       <a href="#" class="btn btn-1">Comments</a>
+     </div>
+ </div>
+ </div>
+</div>
+    `;
+    show.innerText = template;
+  });
+  console.log(result);
+};
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (fetchData);
 
 
 /***/ })

@@ -9,3 +9,6 @@ btnComments.addEventListener('click', event =>{
   showModalPopup()
 });
 
+import fetchData from './modules/getShowsList.js';
+
+fetchData();

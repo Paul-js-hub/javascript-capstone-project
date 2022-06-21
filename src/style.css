@@ -25,12 +25,29 @@ body {
 }
 
 .header h1 {
-  border: 2px solid red;
   margin-left: 50px;
 }
 
-.popup-btn {
+.like {
+  cursor: pointer;
+  text-align: end;
+  margin-right: 27px;
+}
+
+.space {
   display: flex;
-  justify-content: center;
-  margin: 16px;
+  justify-content: space-around;
+}
+
+.btn-1 {
+  box-shadow: 4px 7px 4px 0 #000;
+  border: 1px solid #000;
+}
+
+.btn-container {
+  text-align: center;
+}
+
+li {
+  list-style-type: none;
 }

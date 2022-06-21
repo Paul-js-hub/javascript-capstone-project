@@ -6,15 +6,23 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 /* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(28);
+<<<<<<< HEAD
 /* harmony import */ var _modules_popup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(30);
+=======
+/* harmony import */ var _modules_getShowsList_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(30);
+>>>>>>> 34b6b20096fe76a19a5ff3dbb1c526daf97785fc
 
 
 
 
+<<<<<<< HEAD
 const btnComments = document.querySelector('comments');
 
 btnComments.addEventListener('click', _modules_popup__WEBPACK_IMPORTED_MODULE_2__["default"]);
 
+=======
+(0,_modules_getShowsList_js__WEBPACK_IMPORTED_MODULE_2__["default"])();
+>>>>>>> 34b6b20096fe76a19a5ff3dbb1c526daf97785fc
 
 
 /***/ }),
@@ -720,7 +728,11 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
+<<<<<<< HEAD
 ___CSS_LOADER_EXPORT___.push([module.id, "* {\r\n  margin: 0;\r\n  padding: 0;\r\n  box-sizing: border-box;\r\n}\r\n\r\nbody {\r\n  background-color: #fff;\r\n  font-family: 'Roboto', sans-serif;\r\n}\r\n\r\n.copyright {\r\n  background-color: rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n.header {\r\n  display: flex;\r\n  margin-left: 20px;\r\n  margin-top: 30px;\r\n  justify-content: center;\r\n}\r\n\r\n.header a {\r\n  text-decoration: none;\r\n}\r\n\r\n.header h1 {\r\n  border: 2px solid red;\r\n  margin-left: 50px;\r\n}\r\n\r\n.popup-btn {\r\n  display: flex;\r\n  justify-content: center;\r\n  margin: 16px;\r\n}", ""]);
+=======
+___CSS_LOADER_EXPORT___.push([module.id, "* {\r\n  margin: 0;\r\n  padding: 0;\r\n  box-sizing: border-box;\r\n}\r\n\r\nbody {\r\n  background-color: #fff;\r\n  font-family: 'Roboto', sans-serif;\r\n}\r\n\r\n.copyright {\r\n  background-color: rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n.header {\r\n  display: flex;\r\n  margin-left: 20px;\r\n  margin-top: 30px;\r\n  justify-content: center;\r\n}\r\n\r\n.header a {\r\n  text-decoration: none;\r\n}\r\n\r\n.header h1 {\r\n  margin-left: 50px;\r\n}\r\n\r\n.like {\r\n  cursor: pointer;\r\n  text-align: end;\r\n  margin-right: 27px;\r\n}\r\n\r\n.space {\r\n  display: flex;\r\n  justify-content: space-around;\r\n}\r\n\r\n.btn-1 {\r\n  box-shadow: 4px 7px 4px 0 #000;\r\n  border: 1px solid #000;\r\n}\r\n\r\n.btn-container {\r\n  text-align: center;\r\n}\r\n\r\nli {\r\n  list-style-type: none;\r\n}\r\n", ""]);
+>>>>>>> 34b6b20096fe76a19a5ff3dbb1c526daf97785fc
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -731,6 +743,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, "* {\r\n  margin: 0;\r\n  padding: 0;\r
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+<<<<<<< HEAD
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
 /* harmony export */   "showModalPopup": () => (/* binding */ showModalPopup)
 /* harmony export */ });
@@ -759,6 +772,40 @@ popUpContainer.innerHTML = output;
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (showModalPopup);
+=======
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+const show = document.querySelector('.main-container');
+let template = '';
+
+const fetchData = async () => {
+  const data = await fetch('https://api.tvmaze.com/search/shows?q=girls');
+  const result = await data.json();
+  result.map((res) => {
+    template += `
+  <li id="${res.show.id}" class="col-sm mt-3">
+   <div class="card" style="width: 18rem;">
+    <img src="${res.show.image.medium}" class="card-img-top" alt="...">
+    <div class="card-body">
+     <div class="space">
+      <h5 class="card-title">${res.show.name}</h5>
+      <i class="fa fa-heart" aria-hidden="true"></i>
+     </div>
+      <p  class="like">likes</p>
+      <div class="btn-container">
+        <a href="#" class="btn btn-1">Comments</a>
+      </div>
+    </div>
+</div>
+</li>
+        `;
+    show.innerHTML = template;
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (fetchData);
+
+>>>>>>> 34b6b20096fe76a19a5ff3dbb1c526daf97785fc
 
 /***/ })
 ],

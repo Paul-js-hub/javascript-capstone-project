@@ -6,7 +6,14 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 /* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(28);
+/* harmony import */ var _modules_popup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(30);
 
+
+
+
+const btnComments = document.querySelector('comments');
+
+btnComments.addEventListener('click', _modules_popup__WEBPACK_IMPORTED_MODULE_2__["default"]);
 
 
 
@@ -713,10 +720,45 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "* {\r\n  margin: 0;\r\n  padding: 0;\r\n  box-sizing: border-box;\r\n}\r\n\r\nbody {\r\n  background-color: #fff;\r\n  font-family: 'Roboto', sans-serif;\r\n}\r\n\r\n.copyright {\r\n  background-color: rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n.header {\r\n  display: flex;\r\n  margin-left: 20px;\r\n  margin-top: 30px;\r\n  justify-content: center;\r\n}\r\n\r\n.header a {\r\n  text-decoration: none;\r\n}\r\n\r\n.header h1 {\r\n  border: 2px solid red;\r\n  margin-left: 50px;\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "* {\r\n  margin: 0;\r\n  padding: 0;\r\n  box-sizing: border-box;\r\n}\r\n\r\nbody {\r\n  background-color: #fff;\r\n  font-family: 'Roboto', sans-serif;\r\n}\r\n\r\n.copyright {\r\n  background-color: rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n.header {\r\n  display: flex;\r\n  margin-left: 20px;\r\n  margin-top: 30px;\r\n  justify-content: center;\r\n}\r\n\r\n.header a {\r\n  text-decoration: none;\r\n}\r\n\r\n.header h1 {\r\n  border: 2px solid red;\r\n  margin-left: 50px;\r\n}\r\n\r\n.popup-btn {\r\n  display: flex;\r\n  justify-content: center;\r\n  margin: 16px;\r\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
+
+/***/ }),
+/* 30 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   "showModalPopup": () => (/* binding */ showModalPopup)
+/* harmony export */ });
+
+const popUpContainer = document.getElementById('staticBackdrop');
+let output = '';
+const showModalPopup = ()=>{
+  output += `
+  <div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      ...
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Understood</button>
+    </div>
+  </div>
+</div>
+  `
+popUpContainer.innerHTML = output;
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (showModalPopup);
 
 /***/ })
 ],

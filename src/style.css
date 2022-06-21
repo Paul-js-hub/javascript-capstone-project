@@ -28,3 +28,9 @@ body {
   border: 2px solid red;
   margin-left: 50px;
 }
+
+.popup-btn {
+  display: flex;
+  justify-content: center;
+  margin: 16px;
+}

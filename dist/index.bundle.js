@@ -713,7 +713,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "* {\r\n  margin: 0;\r\n  padding: 0;\r\n  box-sizing: border-box;\r\n}\r\n\r\nbody {\r\n  background-color: #fff;\r\n  font-family: 'Roboto', sans-serif;\r\n}\r\n\r\n.copyright {\r\n  background-color: rgba(0, 0, 0, 0.2);\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\n\nbody {\n  background-color: #fff;\n  font-family: 'Roboto', sans-serif;\n}\n\n.copyright {\n  background-color: rgba(0, 0, 0, 0.2);\n}\n\n.header {\n  display: flex;\n  margin-left: 20px;\n  margin-top: 30px;\n  justify-content: center;\n}\n\n.header a {\n  text-decoration: none;\n}\n\n.header h1 {\n  border: 2px solid red;\n  margin-left: 50px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

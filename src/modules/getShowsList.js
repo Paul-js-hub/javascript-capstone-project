@@ -14,7 +14,7 @@ const fetchData = async () => {
       <h5 class="card-title">${res.show.name}</h5>
       <i class="fa fa-heart" aria-hidden="true"></i>
      </div>
-      <p  class="like">likes</p>
+      <span id="display"  class="like">0 likes</span>
       <div class="btn-container">
         <a href="#" class="btn btn-1">Comments</a>
       </div>

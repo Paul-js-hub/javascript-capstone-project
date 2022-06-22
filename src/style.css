@@ -28,7 +28,7 @@ body {
   margin-left: 50px;
 }
 
-.like {
+span {
   cursor: pointer;
   text-align: end;
   margin-right: 27px;

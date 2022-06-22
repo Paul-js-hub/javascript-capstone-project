@@ -1,7 +1,7 @@
 const show = document.querySelector('.main-container');
 let template = '';
 
-const fetchData = async () => {
+export const fetchData = async () => {
   const data = await fetch('https://api.tvmaze.com/search/shows?q=girls');
   const result = await data.json();
   result.map((res) => {
@@ -16,7 +16,7 @@ const fetchData = async () => {
      </div>
       <p  class="like">likes</p>
       <div class="btn-container">
-        <a href="#" class="btn btn-1">Comments</a>
+        <a href="#" class="btn btn-1 comments">Comments</a>
       </div>
     </div>
 </div>
@@ -26,4 +26,4 @@ const fetchData = async () => {
   });
 };
 
-export default fetchData;
+

@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
 import showModalPopup from './modules/popup';
+import { fetchData as getData } from './modules/getShowsList.js';
 
 const btnComments = document.querySelector('.comments');
 
@@ -9,6 +10,4 @@ btnComments.addEventListener('click', event =>{
   showModalPopup()
 });
 
-import fetchData from './modules/getShowsList.js';
-
-fetchData();
+getData();

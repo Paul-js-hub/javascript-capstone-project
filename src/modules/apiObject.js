@@ -1,4 +1,4 @@
-export default class LikeOj {
+export default class LikeObj {
   constructor() {
     this.item_id = null;
     this.likes = 0;

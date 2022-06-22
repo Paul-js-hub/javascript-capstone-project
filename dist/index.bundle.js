@@ -717,7 +717,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "* {\r\n  margin: 0;\r\n  padding: 0;\r\n  box-sizing: border-box;\r\n}\r\n\r\nbody {\r\n  background-color: #fff;\r\n  font-family: 'Roboto', sans-serif;\r\n}\r\n\r\n.copyright {\r\n  background-color: rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n.header {\r\n  display: flex;\r\n  margin-left: 20px;\r\n  margin-top: 30px;\r\n  justify-content: center;\r\n}\r\n\r\n.header a {\r\n  text-decoration: none;\r\n}\r\n\r\n.header h1 {\r\n  margin-left: 50px;\r\n}\r\n\r\n.like {\r\n  cursor: pointer;\r\n  text-align: end;\r\n  margin-right: 27px;\r\n}\r\n\r\n.space {\r\n  display: flex;\r\n  justify-content: space-around;\r\n}\r\n\r\n.btn-1 {\r\n  box-shadow: 4px 7px 4px 0 #000;\r\n  border: 1px solid #000;\r\n}\r\n\r\n.btn-container {\r\n  text-align: center;\r\n}\r\n\r\nli {\r\n  list-style-type: none;\r\n}\r\n\r\n.title {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n  width: 100%;\r\n}\r\n\r\n.popup-image {\r\n  display: grid;\r\n  grid-template-columns: 1fr 1fr;\r\n  width: 100%;\r\n  column-gap: 16px;\r\n}\r\n\r\n.subtitles {\r\n  display: grid;\r\n  grid-template-columns: 1fr;\r\n}\r\n\r\n.subtitles-container {\r\n  display: grid;\r\n  grid-template-columns: repeat(2 1fr);\r\n}\r\n\r\n@media only screen and (max-width: 768px) {\r\n  .popup-image {\r\n    grid-template-columns: 1fr;\r\n    width: 100%;\r\n  }\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "* {\r\n  margin: 0;\r\n  padding: 0;\r\n  box-sizing: border-box;\r\n}\r\n\r\nbody {\r\n  background-color: #fff;\r\n  font-family: 'Roboto', sans-serif;\r\n}\r\n\r\n.copyright {\r\n  background-color: rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n.header {\r\n  display: flex;\r\n  margin-left: 20px;\r\n  margin-top: 30px;\r\n  justify-content: center;\r\n}\r\n\r\n.header a {\r\n  text-decoration: none;\r\n}\r\n\r\n.header h1 {\r\n  margin-left: 50px;\r\n}\r\n\r\n.like {\r\n  cursor: pointer;\r\n  text-align: end;\r\n  margin-right: 27px;\r\n}\r\n\r\n.space {\r\n  display: flex;\r\n  justify-content: space-around;\r\n}\r\n\r\n.btn-1 {\r\n  box-shadow: 4px 7px 4px 0 #000;\r\n  border: 1px solid #000;\r\n}\r\n\r\n.btn-container {\r\n  text-align: center;\r\n}\r\n\r\nli {\r\n  list-style-type: none;\r\n}\r\n\r\n.title {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n  width: 100%;\r\n}\r\n\r\n.popup-image {\r\n  display: grid;\r\n  grid-template-columns: 1fr 1fr;\r\n  width: 100%;\r\n  column-gap: 16px;\r\n}\r\n\r\n.subtitles {\r\n  display: grid;\r\n  grid-template-columns: 1fr;\r\n}\r\n\r\n.subtitles-container {\r\n  display: grid;\r\n  grid-template-columns: repeat(2 1fr);\r\n}\r\n\r\n.comments-container {\r\n  display: grid;\r\n  justify-content: center;\r\n}\r\n\r\n@media only screen and (max-width: 768px) {\r\n  .popup-image {\r\n    grid-template-columns: 1fr;\r\n    width: 100%;\r\n  }\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -785,10 +785,14 @@ __webpack_require__.r(__webpack_exports__);
 
 const popUpContainer = document.getElementById('staticBackdrop');
 const modal = document.querySelector('.modal');
+const ul = document.createElement('ul');
+
 let output = '';
 const showModalPopup = async (id) => {
   const showResponse = await fetch(`https://api.tvmaze.com/shows/${id}`);
   const showData = await showResponse.json();
+  const showListItemComments = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/qGflqDG1YKcy2DgG6YPM/comments?item_id=1');
+  const comments = await showListItemComments.json();
   output = `
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
   <div class="modal-content">
@@ -797,17 +801,27 @@ const showModalPopup = async (id) => {
       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>
     <div class="modal-body">
-      <div class="popup-image col-sm-12">
-      <img src=${showData.image.medium} id="staticBackdropLabel" alt="Girls Image">
-      <div class="subtitles">
-        <div class="subtitles-container">
-        <p><b>Language</b>:<span>${showData.language}</span></p>
-        <p><b>Premiered</b>:<span>${showData.premiered === null ? 'Not Available' : showData.premiered}</span></p>
-        <p><b>Type</b>:<span>${showData.type}</span></p>
-        <p><b>Rating</b>:<span>${showData.rating.average === null ? 'Not Available' : showData.rating.average}</span></p>
-        </div>
-        <p><b>Summary</b>:<span>${showData.summary === null ? 'Not Available' : showData.summary}</span></p>
+    <div class="popup-image col-sm-12">
+    <img src=${showData.image.medium} id="staticBackdropLabel" alt="Girls Image">
+    <div class="subtitles">
+      <div class="subtitles-container">
+      <p><b>Language</b>:<span>${showData.language}</span></p>
+      <p><b>Premiered</b>:<span>${showData.premiered === null ? 'Not Available' : showData.premiered}</span></p>
+      <p><b>Type</b>:<span>${showData.type}</span></p>
+      <p><b>Rating</b>:<span>${showData.rating.average === null ? 'Not Available' : showData.rating.average}</span></p>
       </div>
+      <p><b>Summary</b>:<span>${showData.summary === null ? 'Not Available' : showData.summary}</span></p>
+    </div>
+    </div>
+      <div class='comments-container'>
+      <h3>${comments.length ? `Comments (${comments.length})` : 'Comments (0)'}</h3>
+      ${comments.length > 0 ? `
+      ${comments.map((comment) => {
+    const li = document.createElement('li');
+    li.innerText = `${comment.creation_date} ${comment.username}: ${comment.comment}`;
+    ul.appendChild(li);
+  })}
+      ` : ''}
       </div>
     </div>
     <div class="modal-footer">
@@ -817,8 +831,9 @@ const showModalPopup = async (id) => {
   </div>
 </div>
   `;
-  popUpContainer.innerHTML = output;
 
+  popUpContainer.innerHTML = output;
+  document.querySelector('.comments-container').appendChild(ul);
   const myModal = new bootstrap__WEBPACK_IMPORTED_MODULE_0__.Modal(modal, {
     keyboard: false,
   });

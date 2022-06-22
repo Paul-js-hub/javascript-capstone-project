@@ -51,3 +51,34 @@ body {
 li {
   list-style-type: none;
 }
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.popup-image {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  column-gap: 16px;
+}
+
+.subtitles {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.subtitles-container {
+  display: grid;
+  grid-template-columns: repeat(2 1fr);
+}
+
+@media only screen and (max-width: 768px) {
+  .popup-image {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+}

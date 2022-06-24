@@ -33,7 +33,7 @@
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.26.0",
-    "hint": "^6.2.0",
+    "hint": "^7.0.1",
     "html-webpack-plugin": "^5.5.0",
     "jest": "^28.1.1",
     "jest-localstorage-mock": "^2.4.21",
@@ -48,6 +48,7 @@
     "webpack-dev-server": "^4.9.0"
   },
   "dependencies": {
+    "@popperjs/core": "^2.11.5",
     "bootstrap": "^5.2.0-beta1",
     "lodash": "^4.17.21"
   },

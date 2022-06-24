@@ -1,5 +1,7 @@
 import LikeObj from './apiObject.js';
 import Utilities from './utils.js';
+import showModalPopup from './popup.js';
+import addComment from './addComment.js';
 import { displayItemCounted } from './counter.js';
 
 const InvolvementApiKey = 'oWfus23KNVDBoOzs2EjU';
@@ -32,7 +34,7 @@ const fetchData = async () => {
      </div>
       <span  class="likes">Likes</span>
       <div class="btn-container">
-        <a href="#" class="btn btn-1">Comments</a>
+        <a href="#" class="btn btn-1 comments">Comments</a>
       </div>
     </div>
 </div>
@@ -40,6 +42,14 @@ const fetchData = async () => {
         `;
     show.innerHTML = template;
   });
+  const btnComments = document.querySelectorAll('.comments');
+  btnComments.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      const showId = e.target.parentNode.parentNode.parentNode.parentNode.id;
+      showModalPopup(showId);
+    });
+  });
+  displayItemCounted(result);
 };
 
 const updateLikes = async () => {
@@ -96,7 +106,28 @@ const postLikes = async () => {
       });
     });
   }
-  displayItemCounted(result);
+};
+
+export const postComment = () => {
+  const modal = document.querySelector('.modal');
+  modal.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let today = new Date();
+    const dd = String(today.getDate()).padStart(2, '0');
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const yyyy = today.getFullYear();
+    today = `${yyyy}-${mm}-${dd}`;
+    const username = document.getElementById('name').value;
+    const comment = document.getElementById('textarea').value;
+    const id = document.querySelector('.hidden').value;
+    const commentList = document.querySelector('.comments-list');
+    commentList.childNodes[0].innerHTML = `Comments (${commentList.childNodes.length})`;
+    const li = document.createElement('li');
+    li.innerText = `${today} ${username}: ${comment}`;
+    commentList.appendChild(li);
+    addComment(id, username, comment);
+    document.querySelector('.needs-validation').reset();
+  });
 };
 
 export {

@@ -1,5 +1,5 @@
 const itemCounter = (item) => item.length;
 
-const displayItemCounter = (shows) => {
+const displayItemCounter = (result) => {
   const counter = document.querySelector('.');
 };

@@ -11,7 +11,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-(0,_modules_getShowsList_js__WEBPACK_IMPORTED_MODULE_2__["default"])();
+(0,_modules_getShowsList_js__WEBPACK_IMPORTED_MODULE_2__.fetchData)();
+(0,_modules_getShowsList_js__WEBPACK_IMPORTED_MODULE_2__.postComment)();
 
 
 /***/ }),
@@ -717,7 +718,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "* {\r\n  margin: 0;\r\n  padding: 0;\r\n  box-sizing: border-box;\r\n}\r\n\r\nbody {\r\n  background-color: #fff;\r\n  font-family: 'Roboto', sans-serif;\r\n}\r\n\r\n.copyright {\r\n  background-color: rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n.header {\r\n  display: flex;\r\n  margin-left: 20px;\r\n  margin-top: 30px;\r\n  justify-content: center;\r\n}\r\n\r\n.header a {\r\n  text-decoration: none;\r\n}\r\n\r\n.header h1 {\r\n  margin-left: 50px;\r\n}\r\n\r\n.like {\r\n  cursor: pointer;\r\n  text-align: end;\r\n  margin-right: 27px;\r\n}\r\n\r\n.space {\r\n  display: flex;\r\n  justify-content: space-around;\r\n}\r\n\r\n.btn-1 {\r\n  box-shadow: 4px 7px 4px 0 #000;\r\n  border: 1px solid #000;\r\n}\r\n\r\n.btn-container {\r\n  text-align: center;\r\n}\r\n\r\nli {\r\n  list-style-type: none;\r\n}\r\n\r\n.title {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n  width: 100%;\r\n}\r\n\r\n.popup-image {\r\n  display: grid;\r\n  grid-template-columns: 1fr 1fr;\r\n  width: 100%;\r\n  column-gap: 16px;\r\n}\r\n\r\n.subtitles {\r\n  display: grid;\r\n  grid-template-columns: 1fr;\r\n}\r\n\r\n.subtitles-container {\r\n  display: grid;\r\n  grid-template-columns: repeat(2 1fr);\r\n}\r\n\r\n.comments-container {\r\n  display: grid;\r\n  justify-content: center;\r\n}\r\n\r\n@media only screen and (max-width: 768px) {\r\n  .popup-image {\r\n    grid-template-columns: 1fr;\r\n    width: 100%;\r\n  }\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "* {\r\n  margin: 0;\r\n  padding: 0;\r\n  box-sizing: border-box;\r\n}\r\n\r\nbody {\r\n  background-color: #fff;\r\n  font-family: 'Roboto', sans-serif;\r\n}\r\n\r\n.copyright {\r\n  background-color: rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n.header {\r\n  display: flex;\r\n  margin-left: 20px;\r\n  margin-top: 30px;\r\n  justify-content: center;\r\n}\r\n\r\n.header a {\r\n  text-decoration: none;\r\n}\r\n\r\n.header h1 {\r\n  margin-left: 50px;\r\n}\r\n\r\n.like {\r\n  cursor: pointer;\r\n  text-align: end;\r\n  margin-right: 27px;\r\n}\r\n\r\n.space {\r\n  display: flex;\r\n  justify-content: space-around;\r\n}\r\n\r\n.btn-1 {\r\n  box-shadow: 4px 7px 4px 0 #000;\r\n  border: 1px solid #000;\r\n}\r\n\r\n.btn-container {\r\n  text-align: center;\r\n}\r\n\r\nli {\r\n  list-style-type: none;\r\n}\r\n\r\n.title {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n  width: 100%;\r\n}\r\n\r\n.popup-image {\r\n  display: grid;\r\n  grid-template-columns: 1fr 1fr;\r\n  width: 100%;\r\n  column-gap: 16px;\r\n}\r\n\r\n.subtitles {\r\n  display: grid;\r\n  grid-template-columns: 1fr;\r\n}\r\n\r\n.subtitles-container {\r\n  display: grid;\r\n  grid-template-columns: repeat(2 1fr);\r\n}\r\n\r\n.comments-container {\r\n  display: grid;\r\n  justify-content: center;\r\n}\r\n\r\nform.needs-validation {\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n}\r\n\r\n.submit {\r\n  text-align: center;\r\n}\r\n\r\n.add-container h3 {\r\n  text-align: center;\r\n}\r\n\r\n.btn-submit {\r\n  text-align: center;\r\n}\r\n\r\n.input-container {\r\n  margin: 12px;\r\n}\r\n\r\n@media only screen and (max-width: 768px) {\r\n  .popup-image {\r\n    grid-template-columns: 1fr;\r\n    width: 100%;\r\n  }\r\n\r\n  img#staticBackdropLabel {\r\n    width: 100%;\r\n  }\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -728,9 +729,14 @@ ___CSS_LOADER_EXPORT___.push([module.id, "* {\r\n  margin: 0;\r\n  padding: 0;\r
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "fetchData": () => (/* binding */ fetchData),
+/* harmony export */   "postComment": () => (/* binding */ postComment)
 /* harmony export */ });
 /* harmony import */ var _popup_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(31);
+/* harmony import */ var _addComment_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(91);
+/* harmony import */ var _counter_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(92);
+
+
 
 
 const show = document.querySelector('.main-container');
@@ -739,8 +745,9 @@ let template = '';
 const fetchData = async () => {
   const data = await fetch('https://api.tvmaze.com/search/shows?q=girls');
   const result = await data.json();
-  result.map((res) => {
-    template += `
+  if (result.length !== 0) {
+    result.map((res) => {
+      template += `
   <li id="${res.show.id}" class="col-sm mt-3">
    <div class="card" style="width: 18rem;">
     <img src="${res.show.image.medium}" class="card-img-top" alt="Girls Image">
@@ -751,15 +758,15 @@ const fetchData = async () => {
      </div>
       <p  class="like">likes</p>
       <div class="btn-container">
-        <a href="#" class="btn btn-1 comments">Comments</a>
+        <button class="btn btn-1 comments">Comments</button>
       </div>
     </div>
 </div>
 </li>
         `;
-    show.innerHTML = template;
-  });
-
+      show.innerHTML = template;
+    });
+  }
   const btnComments = document.querySelectorAll('.comments');
   btnComments.forEach((btn) => {
     btn.addEventListener('click', (e) => {
@@ -767,9 +774,30 @@ const fetchData = async () => {
       (0,_popup_js__WEBPACK_IMPORTED_MODULE_0__["default"])(showId);
     });
   });
+  (0,_counter_js__WEBPACK_IMPORTED_MODULE_2__.displayItemCounted)(result);
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (fetchData);
+const postComment = () => {
+  const modal = document.querySelector('.modal');
+  modal.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let today = new Date();
+    const dd = String(today.getDate()).padStart(2, '0');
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const yyyy = today.getFullYear();
+    today = `${yyyy}-${mm}-${dd}`;
+    const username = document.getElementById('name').value;
+    const comment = document.getElementById('textarea').value;
+    const id = document.querySelector('.hidden').value;
+    const commentList = document.querySelector('.comments-list');
+    commentList.childNodes[0].innerHTML = `Comments (${commentList.childNodes.length})`;
+    const li = document.createElement('li');
+    li.innerText = `${today} ${username}: ${comment}`;
+    commentList.appendChild(li);
+    (0,_addComment_js__WEBPACK_IMPORTED_MODULE_1__["default"])(id, username, comment);
+    document.querySelector('.needs-validation').reset();
+  });
+};
 
 
 /***/ }),
@@ -785,14 +813,22 @@ __webpack_require__.r(__webpack_exports__);
 
 const popUpContainer = document.getElementById('staticBackdrop');
 const modal = document.querySelector('.modal');
-const ul = document.createElement('ul');
-
 let output = '';
 const showModalPopup = async (id) => {
+  const showListItemComments = await fetch(
+    `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/fUbqF1yL645NYNB2lPxl/comments?item_id=${id}`,
+  );
+  const comments = await showListItemComments.json();
   const showResponse = await fetch(`https://api.tvmaze.com/shows/${id}`);
   const showData = await showResponse.json();
-  const showListItemComments = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/qGflqDG1YKcy2DgG6YPM/comments?item_id=1');
-  const comments = await showListItemComments.json();
+  const ul = document.createElement('ul');
+  const h3 = document.createElement('h3');
+  if (comments.length) {
+    h3.innerHTML = `Comments (${comments.length})`;
+  } else {
+    h3.innerHTML = 'Comments (0)';
+  }
+  ul.appendChild(h3);
   output = `
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
   <div class="modal-content">
@@ -802,45 +838,87 @@ const showModalPopup = async (id) => {
     </div>
     <div class="modal-body">
     <div class="popup-image col-sm-12">
-    <img src=${showData.image.medium} id="staticBackdropLabel" alt="Girls Image">
+    <img class='img-popup' src=${showData.image.medium} id="staticBackdropLabel" alt="Girls Image">
     <div class="subtitles">
       <div class="subtitles-container">
       <p><b>Language</b>:<span>${showData.language}</span></p>
-      <p><b>Premiered</b>:<span>${showData.premiered === null ? 'Not Available' : showData.premiered}</span></p>
+      <p><b>Premiered</b>:<span>${
+  showData.premiered === null ? 'Not Available' : showData.premiered
+}</span></p>
       <p><b>Type</b>:<span>${showData.type}</span></p>
-      <p><b>Rating</b>:<span>${showData.rating.average === null ? 'Not Available' : showData.rating.average}</span></p>
+      <p><b>Rating</b>:<span>${
+  showData.rating.average === null
+    ? 'Not Available'
+    : showData.rating.average
+}</span></p>
       </div>
-      <p><b>Summary</b>:<span>${showData.summary === null ? 'Not Available' : showData.summary}</span></p>
+      <p><b>Summary</b>:<span>${
+  showData.summary === null ? 'Not Available' : showData.summary
+}</span></p>
     </div>
     </div>
       <div class='comments-container'>
-      <h3>${comments.length ? `Comments (${comments.length})` : 'Comments (0)'}</h3>
       ${comments.length > 0 ? `
       ${comments.map((comment) => {
     const li = document.createElement('li');
     li.innerText = `${comment.creation_date} ${comment.username}: ${comment.comment}`;
     ul.appendChild(li);
   })}
-      ` : ''}
+      ` : ''
+}
       </div>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Understood</button>
+      <div class='add-container'>
+      <h3>Add a comment</h3>
+  <form class="needs-validation" novalidate>
+  <div class="col-md-4 input-container">
+    <input type="hidden" value='${showData.id}' class="form-control hidden" required>
+    <input type="text" class="form-control required" id="name" placeholder = "Your name" required>
+    <div class="invalid-feedback">
+        Please enter a username.
+      </div>
+  </div>
+  <div class="col-md-4 mb-3 input-container">
+    <textarea class="form-control required" id="textarea" placeholder="Your insights" required></textarea>
+    <div class="invalid-feedback">
+        Please enter a comment.
+      </div>
+  </div>
+  <div class="col-12 btn-submit">
+    <button class="btn btn-1 submit comments" type="submit">Comment</button>
+  </div>
+  </form>
+      </div>
     </div>
   </div>
 </div>
   `;
-
   popUpContainer.innerHTML = output;
   document.querySelector('.comments-container').appendChild(ul);
+  ul.classList.add('comments-list');
   const myModal = new bootstrap__WEBPACK_IMPORTED_MODULE_0__.Modal(modal, {
     keyboard: false,
+    focus: true,
   });
   myModal.show();
+
+  (() => {
+    const forms = document.querySelectorAll('.needs-validation');
+    Array.prototype.slice.call(forms)
+      .forEach((form) => {
+        form.addEventListener('submit', (event) => {
+          if (!form.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+
+          form.classList.add('was-validated');
+        }, false);
+      });
+  })();
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (showModalPopup);
+
 
 /***/ }),
 /* 32 */
@@ -8985,6 +9063,49 @@ var defaultModifiers = [_modifiers_eventListeners_js__WEBPACK_IMPORTED_MODULE_0_
 var createPopper = /*#__PURE__*/(0,_createPopper_js__WEBPACK_IMPORTED_MODULE_4__.popperGenerator)({
   defaultModifiers: defaultModifiers
 }); // eslint-disable-next-line import/no-unused-modules
+
+
+
+/***/ }),
+/* 91 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+const addComment = async (id, username, comment) => {
+  await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/fUbqF1yL645NYNB2lPxl/comments',
+    {
+      method: 'POST',
+      body: JSON.stringify({
+        item_id: id,
+        username,
+        comment,
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (addComment);
+
+/***/ }),
+/* 92 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "displayItemCounted": () => (/* binding */ displayItemCounted),
+/* harmony export */   "itemCounter": () => (/* binding */ itemCounter)
+/* harmony export */ });
+const itemCounter = (item) => item.length;
+
+const displayItemCounted = (result) => {
+  const counter = document.querySelector('.item-counter');
+  counter.innerText = `TV series(${itemCounter(result)})`;
+};
 
 
 

@@ -37,7 +37,7 @@ Go to the root folder and run the following:
     $ npm run test
 
 ## Live link
-[Live Demo Link](Coming Soon)
+[Live Demo Link](https://paul-js-hub.github.io/javascript-capstone-project/)
 
 ## Live presentation
 [Video](Coming Soon)

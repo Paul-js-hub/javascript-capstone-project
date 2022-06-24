@@ -1,17 +1,45 @@
-import Utilities from './utils.js';
-import LikeObj from './apiObject.js';
+/* eslint-disable consistent-return */
+/* eslint-disable radix */
+/* eslint-disable no-await-in-loop */
 
-const appIDLikes = `${Utilities.baseUrl}apps/st5awnig42N9i1c9g8rb/likes`;
+const InvolvementApiKey = 'oWfus23KNVDBoOzs2EjU';
 
-const fetchLikes = async (appIDLikes) => {
-  try {
-    const response = await fetch(appIDLikes);
-    if (response.ok) return await response.json();
-    throw new Error(`HTTP error: ${response.status}`);
-  } catch (e) {
-    return Utilities.exception(e);
+async function postLike(id) {
+  const url = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${InvolvementApiKey}/likes/`;
+
+  const data = {
+    item_id: id,
+  };
+
+  const param = {
+
+    method: 'Post',
+
+    headers: {
+
+      'content-type': 'application/json;charset = UTF-8',
+
+    },
+
+    body: JSON.stringify(data),
+
+  };
+
+  const sendRequest = await fetch(url, param);
+  const response = await sendRequest.text();
+  return response;
+}
+
+async function getLikes(itemId) {
+  const response = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${InvolvementApiKey}/likes`);
+  const data = await response.json();
+  for (let i = 0; i < data.length; i += 1) {
+    if (data[i].item_id === itemId) {
+      return data[i].likes;
+    }
   }
-};
+  // return data;
+}
 
 const show = document.querySelector('.main-container');
 let template = '';
@@ -27,9 +55,9 @@ const fetchData = async () => {
     <div class="card-body">
      <div class="space">
       <h5 class="card-title">${res.show.name}</h5>
-      <i class="fa fa-heart" aria-hidden="true"></i>
+      <i id="${res.show.id}" class="fa fa-heart" aria-hidden="true"></i>
      </div>
-      <span data-id=${index}  class="likes">Likes</span>
+      <span  class="likes">Likes</span>
       <div class="btn-container">
         <a href="#" class="btn btn-1">Comments</a>
       </div>
@@ -39,64 +67,19 @@ const fetchData = async () => {
         `;
     show.innerHTML = template;
   });
-};
 
-const updateLikes = async () => {
-  fetchLikes(appIDLikes)
-    .then((response) => response)
-    .then((response) => {
-      const keys = Object.keys(response);
-      keys.forEach((key) => {
-        const likes = document.querySelectorAll('.likes');
-        [...likes].forEach((item) => {
-          const showID = parseInt(
-            item.previousElementSibling.lastElementChild.getAttribute(
-              'data-id',
-            ),
-            10,
-          );
-          if (response[key].item_id === showID) {
-            item.innerText = `${response[key].likes} Likes`;
-            if (response[key].likes > 0) {
-              item.previousElementSibling.lastElementChild.classList.add('red');
-            }
-          }
-        });
+  // event listener to post a like
+  document.querySelectorAll('.fa-heart').forEach((item) => {
+    item.addEventListener('click', () => {
+      postLike(item.id).then((data) => {
+        console.log('data from server: ', data);
+      });
+
+      getLikes(item.id).then((result) => {
+        document.getElementById(`p${item.id}`).innerText = parseInt(result) + 1;
       });
     });
-};
-
-const postLikes = async () => {
-  const shows = await fetchData().then((result) => result);
-  const clickLikes = document.querySelectorAll('.heart');
-  const likeObj = new LikeObj();
-
-  if (shows.length !== 0) {
-    [...clickLikes].forEach((element) => {
-      element.addEventListener('click', (e) => {
-        likeObj.item_id = parseInt(e.target.getAttribute('data-id'), 10);
-        fetch(appIDLikes, {
-          method: 'POST',
-          body: JSON.stringify(likeObj),
-          headers: {
-            'Content-type': 'application/json; charset=UTF-8',
-          },
-        });
-
-        const totalLikes = e.target.parentElement.nextElementSibling;
-        fetchLikes(appIDLikes)
-          .then((response) => response)
-          .then((response) => {
-            const keys = Object.keys(response);
-            keys.forEach((key) => {
-              if (response[key].item_id === likeObj.item_id) {
-                totalLikes.innerText = `${response[key].likes} Likes`;
-              }
-            });
-          });
-      });
-    });
-  }
+  });
 };
 
 export default fetchData;

@@ -717,7 +717,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "* {\r\n  margin: 0;\r\n  padding: 0;\r\n  box-sizing: border-box;\r\n}\r\n\r\nbody {\r\n  background-color: #fff;\r\n  font-family: 'Roboto', sans-serif;\r\n}\r\n\r\n.copyright {\r\n  background-color: rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n.header {\r\n  display: flex;\r\n  margin-left: 20px;\r\n  margin-top: 30px;\r\n  justify-content: center;\r\n}\r\n\r\n.header a {\r\n  text-decoration: none;\r\n}\r\n\r\n.header h1 {\r\n  margin-left: 50px;\r\n}\r\n\r\n.like {\r\n  cursor: pointer;\r\n  text-align: end;\r\n  margin-right: 27px;\r\n}\r\n\r\n.space {\r\n  display: flex;\r\n  justify-content: space-around;\r\n}\r\n\r\n.btn-1 {\r\n  box-shadow: 4px 7px 4px 0 #000;\r\n  border: 1px solid #000;\r\n}\r\n\r\n.btn-container {\r\n  text-align: center;\r\n}\r\n\r\nli {\r\n  list-style-type: none;\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\n\nbody {\n  background-color: #fff;\n  font-family: 'Roboto', sans-serif;\n}\n\n.copyright {\n  background-color: rgba(0, 0, 0, 0.2);\n}\n\n.header {\n  display: flex;\n  margin-left: 20px;\n  margin-top: 30px;\n  justify-content: center;\n}\n\n.header a {\n  text-decoration: none;\n}\n\n.header h1 {\n  margin-left: 50px;\n}\n\nspan {\n  cursor: pointer;\n  text-align: end;\n  margin-right: 27px;\n}\n\n.space {\n  display: flex;\n  justify-content: space-around;\n}\n\n.btn-1 {\n  box-shadow: 4px 7px 4px 0 #000;\n  border: 1px solid #000;\n}\n\n.btn-container {\n  text-align: center;\n}\n\nli {\n  list-style-type: none;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -730,13 +730,56 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* eslint-disable radix */
+/* eslint-disable consistent-return */
+/* eslint-disable no-await-in-loop */
+
+const InvolvementApiKey = 'H1778Eipl0PRUFSJ8DNo';
+
+async function postLike(meal) {
+  const url = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${InvolvementApiKey}/likes/`;
+
+  const data = {
+    item_id: meal,
+  };
+
+  const param = {
+
+    method: 'Post',
+
+    headers: {
+
+      'content-type': 'application/json;charset = UTF-8',
+
+    },
+
+    body: JSON.stringify(data),
+
+  };
+
+  const sendRequest = await fetch(url, param);
+  const response = await sendRequest.text();
+  return response;
+}
+
+async function getLikes(itemId) {
+  const response = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${InvolvementApiKey}/likes`);
+  const data = await response.json();
+  for (let i = 0; i < data.length; i += 1) {
+    if (data[i].item_id === itemId) {
+      return data[i].likes;
+    }
+  }
+  // return data;
+}
+
 const show = document.querySelector('.main-container');
 let template = '';
 
 const fetchData = async () => {
   const data = await fetch('https://api.tvmaze.com/search/shows?q=girls');
   const result = await data.json();
-  result.map((res) => {
+  result.map((res, index) => {
     template += `
   <li id="${res.show.id}" class="col-sm mt-3">
    <div class="card" style="width: 18rem;">
@@ -746,7 +789,7 @@ const fetchData = async () => {
       <h5 class="card-title">${res.show.name}</h5>
       <i class="fa fa-heart" aria-hidden="true"></i>
      </div>
-      <p  class="like">likes</p>
+      <span data-id=${index}  class="likes">Likes</span>
       <div class="btn-container">
         <a href="#" class="btn btn-1">Comments</a>
       </div>
@@ -755,6 +798,19 @@ const fetchData = async () => {
 </li>
         `;
     show.innerHTML = template;
+  });
+
+  // event listener to post a like
+  document.querySelectorAll('.fa-heart').forEach((item) => {
+    item.addEventListener('click', () => {
+      postLike(item.id).then((data) => {
+        console.log('data from server: ', data);
+      });
+
+      getLikes(item.id).then((result) => {
+        document.getElementById(`p${item.id}`).innerText = parseInt(result) + 1;
+      });
+    });
   });
 };
 

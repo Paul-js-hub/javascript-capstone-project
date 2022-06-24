@@ -1,9 +1,10 @@
 import showModalPopup from './popup.js';
+import addComment from './addComment.js';
 
 const show = document.querySelector('.main-container');
 let template = '';
 
-const fetchData = async () => {
+export const fetchData = async () => {
   const data = await fetch('https://api.tvmaze.com/search/shows?q=girls');
   const result = await data.json();
   result.map((res) => {
@@ -18,7 +19,7 @@ const fetchData = async () => {
      </div>
       <p  class="like">likes</p>
       <div class="btn-container">
-        <a href="#" class="btn btn-1 comments">Comments</a>
+        <button class="btn btn-1 comments">Comments</button>
       </div>
     </div>
 </div>
@@ -36,4 +37,24 @@ const fetchData = async () => {
   });
 };
 
-export default fetchData;
+export const postComment = () => {
+  const modal = document.querySelector('.modal');
+  modal.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let today = new Date();
+    const dd = String(today.getDate()).padStart(2, '0');
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const yyyy = today.getFullYear();
+    today = `${yyyy}-${mm}-${dd}`;
+    const username = document.getElementById('name').value;
+    const comment = document.getElementById('textarea').value;
+    const id = document.querySelector('.hidden').value;
+    const commentList = document.querySelector('.comments-list');
+    commentList.childNodes[0].innerHTML = `Comments (${commentList.childNodes.length})`;
+    const li = document.createElement('li');
+    li.innerText = `${today} ${username}: ${comment}`;
+    commentList.appendChild(li);
+    addComment(id, username, comment);
+    document.querySelector('.needs-validation').reset();
+  });
+};

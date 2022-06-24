@@ -108,4 +108,8 @@ form.needs-validation {
     grid-template-columns: 1fr;
     width: 100%;
   }
+
+  img#staticBackdropLabel {
+    width: 100%;
+  }
 }

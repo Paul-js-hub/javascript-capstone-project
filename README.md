@@ -40,7 +40,7 @@ Go to the root folder and run the following:
 [Live Demo Link](https://paul-js-hub.github.io/javascript-capstone-project/)
 
 ## Live presentation
-[Video](Coming Soon)
+[Video](https://drive.google.com/file/d/1sIqerHstaf2hgTaJckokk19QtjI4Wk8l/view?usp=sharing)
 
 ## Authors
 

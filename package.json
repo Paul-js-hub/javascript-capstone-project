@@ -50,6 +50,7 @@
   "dependencies": {
     "@popperjs/core": "^2.11.5",
     "bootstrap": "^5.2.0-beta1",
+    "jest-environment-jsdom": "^28.1.1",
     "lodash": "^4.17.21"
   },
   "main": "webpack.config.js"

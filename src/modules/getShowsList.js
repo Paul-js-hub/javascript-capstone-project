@@ -1,12 +1,9 @@
 import LikeObj from './apiObject.js';
-import Utilities from './utils.js';
 import showModalPopup from './popup.js';
 import addComment from './addComment.js';
 import { displayItemCounted } from './counter.js';
 
 const InvolvementApiKey = 'oWfus23KNVDBoOzs2EjU';
-
-// const appIDLikes = `${Utilities.baseUrl}apps/st5awnig42N9i1c9g8rb/likes`;
 
 const appIDLikes = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${InvolvementApiKey}/likes`;
 

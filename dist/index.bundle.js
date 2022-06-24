@@ -734,6 +734,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _popup_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(31);
 /* harmony import */ var _addComment_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(91);
+/* harmony import */ var _counter_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(92);
+
 
 
 
@@ -743,8 +745,9 @@ let template = '';
 const fetchData = async () => {
   const data = await fetch('https://api.tvmaze.com/search/shows?q=girls');
   const result = await data.json();
-  result.map((res) => {
-    template += `
+  if (result.length !== 0) {
+    result.map((res) => {
+      template += `
   <li id="${res.show.id}" class="col-sm mt-3">
    <div class="card" style="width: 18rem;">
     <img src="${res.show.image.medium}" class="card-img-top" alt="Girls Image">
@@ -761,9 +764,9 @@ const fetchData = async () => {
 </div>
 </li>
         `;
-    show.innerHTML = template;
-  });
-
+      show.innerHTML = template;
+    });
+  }
   const btnComments = document.querySelectorAll('.comments');
   btnComments.forEach((btn) => {
     btn.addEventListener('click', (e) => {
@@ -771,6 +774,7 @@ const fetchData = async () => {
       (0,_popup_js__WEBPACK_IMPORTED_MODULE_0__["default"])(showId);
     });
   });
+  (0,_counter_js__WEBPACK_IMPORTED_MODULE_2__.displayItemCounted)(result);
 };
 
 const postComment = () => {
@@ -9086,6 +9090,24 @@ const addComment = async (id, username, comment) => {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (addComment);
+
+/***/ }),
+/* 92 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "displayItemCounted": () => (/* binding */ displayItemCounted),
+/* harmony export */   "itemCounter": () => (/* binding */ itemCounter)
+/* harmony export */ });
+const itemCounter = (item) => item.length;
+
+const displayItemCounted = (result) => {
+  const counter = document.querySelector('.item-counter');
+  counter.innerText = `TV series(${itemCounter(result)})`;
+};
+
+
 
 /***/ })
 ],

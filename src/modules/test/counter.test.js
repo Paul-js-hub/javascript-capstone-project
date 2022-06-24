@@ -114,7 +114,7 @@ test('Should output the total items from API displayed on homepage', () => {
       updated: 1632080861,
       links: {
         self: {
-          href: 'https://api.tvmaze.com/shows/41734'
+          href: 'https://api.tvmaze.com/shows/41734',
         },
       },
     },

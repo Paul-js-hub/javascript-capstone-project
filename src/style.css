@@ -103,6 +103,10 @@ form.needs-validation {
   margin: 12px;
 }
 
+span {
+  float: right;
+}
+
 @media only screen and (max-width: 768px) {
   .popup-image {
     grid-template-columns: 1fr;

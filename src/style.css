@@ -81,6 +81,28 @@ li {
   justify-content: center;
 }
 
+form.needs-validation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.submit {
+  text-align: center;
+}
+
+.add-container h3 {
+  text-align: center;
+}
+
+.btn-submit {
+  text-align: center;
+}
+
+.input-container {
+  margin: 12px;
+}
+
 @media only screen and (max-width: 768px) {
   .popup-image {
     grid-template-columns: 1fr;

@@ -810,7 +810,6 @@ const postLikes = async () => {
   const result = await data.json();
   const clickLikes = document.querySelectorAll('.heart');
   const likeObj = new _apiObject_js__WEBPACK_IMPORTED_MODULE_0__["default"]();
-  
   if (result.length !== 0) {
     [...clickLikes].forEach((res) => {
       res.addEventListener('click', (e) => {

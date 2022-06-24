@@ -1,6 +1,6 @@
 import LikeObj from './apiObject.js';
 import Utilities from './utils.js';
-
+import { displayItemCounted } from './counter.js';
 const InvolvementApiKey = 'oWfus23KNVDBoOzs2EjU';
 
 // const appIDLikes = `${Utilities.baseUrl}apps/st5awnig42N9i1c9g8rb/likes`;
@@ -97,6 +97,7 @@ const postLikes = async () => {
       });
     });
   }
+  displayItemCounted(result);
 };
 
 export {

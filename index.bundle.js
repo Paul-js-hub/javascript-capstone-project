@@ -741,6 +741,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 const InvolvementApiKey = 'oWfus23KNVDBoOzs2EjU';
 
 // const appIDLikes = `${Utilities.baseUrl}apps/st5awnig42N9i1c9g8rb/likes`;
@@ -809,8 +810,7 @@ const postLikes = async () => {
   const result = await data.json();
   const clickLikes = document.querySelectorAll('.heart');
   const likeObj = new _apiObject_js__WEBPACK_IMPORTED_MODULE_0__["default"]();
-  console.log(result, clickLikes, likeObj);
-
+  
   if (result.length !== 0) {
     [...clickLikes].forEach((res) => {
       res.addEventListener('click', (e) => {

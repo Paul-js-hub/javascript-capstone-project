@@ -4,5 +4,5 @@ export default class LikeObj {
     this.likes = 0;
   }
 
-    static likes = [];
+  static likes = [];
 }

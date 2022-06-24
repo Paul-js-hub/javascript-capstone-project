@@ -1,4 +1,6 @@
 import LikeObj from './apiObject.js';
+import Utilities from './utils.js';
+import { displayItemCounted } from './counter.js';
 
 const InvolvementApiKey = 'oWfus23KNVDBoOzs2EjU';
 
@@ -68,8 +70,6 @@ const postLikes = async () => {
   const result = await data.json();
   const clickLikes = document.querySelectorAll('.heart');
   const likeObj = new LikeObj();
-  console.log(result, clickLikes, likeObj);
-
   if (result.length !== 0) {
     [...clickLikes].forEach((res) => {
       res.addEventListener('click', (e) => {
@@ -96,6 +96,7 @@ const postLikes = async () => {
       });
     });
   }
+  displayItemCounted(result);
 };
 
 export {

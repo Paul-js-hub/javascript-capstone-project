@@ -28,12 +28,6 @@ body {
   margin-left: 50px;
 }
 
-span {
-  cursor: pointer;
-  text-align: end;
-  margin-right: 27px;
-}
-
 .space {
   display: flex;
   justify-content: space-around;
@@ -101,6 +95,11 @@ form.needs-validation {
 
 .input-container {
   margin: 12px;
+}
+
+span {
+  float: right;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 768px) {

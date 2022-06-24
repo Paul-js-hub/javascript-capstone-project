@@ -1,4 +1,5 @@
 import showModalPopup from './popup.js';
+import { displayItemCounted } from './counter.js';
 
 const show = document.querySelector('.main-container');
 let template = '';
@@ -6,8 +7,9 @@ let template = '';
 const fetchData = async () => {
   const data = await fetch('https://api.tvmaze.com/search/shows?q=girls');
   const result = await data.json();
-  result.map((res) => {
-    template += `
+  if (result.length !== 0) {
+    result.map((res) => {
+      template += `
   <li id="${res.show.id}" class="col-sm mt-3">
    <div class="card" style="width: 18rem;">
     <img src="${res.show.image.medium}" class="card-img-top" alt="Girls Image">
@@ -24,9 +26,9 @@ const fetchData = async () => {
 </div>
 </li>
         `;
-    show.innerHTML = template;
-  });
-
+      show.innerHTML = template;
+    });
+  }
   const btnComments = document.querySelectorAll('.comments');
   btnComments.forEach((btn) => {
     btn.addEventListener('click', (e) => {
@@ -34,6 +36,7 @@ const fetchData = async () => {
       showModalPopup(showId);
     });
   });
+  displayItemCounted(result);
 };
 
 export default fetchData;

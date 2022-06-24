@@ -3,10 +3,6 @@ import './style.css';
 
 import { postLikes, fetchData, updateLikes } from './modules/getShowsList.js';
 
-const render = async () => {
-  fetchData();
-  postLikes();
-  updateLikes();
-};
-
-render();
+fetchData();
+postLikes();
+updateLikes();

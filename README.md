@@ -1,7 +1,7 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
 # javascript-capstone-project
-This is an application that pulls data from TVMAZE API, and displays TV series and movies on the webpage. It also uses Involvement API to record the different user interactions (likes and comments).
+This is an application that pulls data from TVMAZE API that displays TV series and movies on the webpage. It also uses Involvement API to record the different user interactions (likes and comments).
 ## Built With
 
 - HTML
